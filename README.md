@@ -1,1 +1,2 @@
-# yolobit_extension_blynk_v2
+# Mục mở rộng để làm việc với Blynk app
+

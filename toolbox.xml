@@ -1,0 +1,50 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category id="ble" name="BLYNK V2" colour="#00A06B" icon="mobile alternate">
+    <block type="yolobit_blynk_connect_wifi">
+      <value name="WIFI">
+        <shadow type="text">
+          <field name="TEXT">wifi</field>
+        </shadow>
+      </value>
+      <value name="PASSWORD">
+        <shadow type="text">
+          <field name="TEXT">password</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yolobit_blynk_connect">
+      <value name="auth_key">
+          <shadow type="text"><field name="TEXT"></field></shadow>
+      </value>
+      <value name="server">
+          <shadow type="text"><field name="TEXT">blynk-cloud.com</field></shadow>
+      </value>
+      <value name="port">
+          <shadow type="math_number"><field name="NUM">80</field></shadow>
+      </value>
+    </block>
+    <block type="yolobit_blynk_app_pin_write"></block>
+    <block type="yolobit_blynk_update_pin">
+      <value name="value">
+          <shadow type="math_number"><field name="NUM">1234</field></shadow>
+      </value>
+    </block>
+    <block type="yolobit_blynk_notify">
+      <value name="message">
+          <shadow type="text"><field name="TEXT">nội dung thông báo</field></shadow>
+      </value>
+    </block>
+    <block type="yolobit_blynk_email">
+      <value name="email">
+          <shadow type="text"><field name="TEXT">test@test.com</field></shadow>
+      </value>
+      <value name="subject">
+          <shadow type="text"><field name="TEXT">Tiêu đề</field></shadow>
+      </value>
+      <value name="body">
+          <shadow type="text"><field name="TEXT">Nội dung email</field></shadow>
+      </value>
+    </block>
+    <block type="yolobit_blynk_run"></block>
+  </category>
+</xml>

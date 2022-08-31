@@ -1,0 +1,16 @@
+{
+    "name": "BLYNK V2",
+    "description": "Mục mở rộng hỗ trợ sử dụng phần mềm Blynk",
+    "libs": [
+        "blynklib.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    },
+    "poster": "poster.png"
+}
