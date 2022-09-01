@@ -1,8 +1,8 @@
 {
-    "name": "BLYNK V2",
-    "description": "Mục mở rộng hỗ trợ sử dụng phần mềm Blynk",
+    "name": "BLYNK IoT",
+    "description": "Thư viện hỗ trợ làm việc với Blynk IoT (Blynk V2)",
     "libs": [
-        "blynklib.py"
+        "blynklib_v2.py"
     ],
     "blocks": [
         "definition.js"
