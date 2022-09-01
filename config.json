@@ -2,7 +2,8 @@
     "name": "BLYNK IoT",
     "description": "Thư viện hỗ trợ làm việc với Blynk IoT (Blynk V2)",
     "libs": [
-        "blynklib_v2.py"
+        "blynklib_v2.py",
+        "wifi_manager.py"
     ],
     "blocks": [
         "definition.js"
