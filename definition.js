@@ -300,8 +300,7 @@ Blockly.Python['yolobit_blynkv2_connect_wifi'] = function(block) {
   var value_password = Blockly.Python.valueToCode(block, 'PASSWORD', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = 'wifi_manager.connect_wifi(' + value_wifi + ', ' + value_password + ')\n';
-  Blockly.Python.definitions_['import_wifi_manager_connect'] = code;
-  return '';
+  return code;
 };
 
 Blockly.Python['yolobit_blynkv2_connect'] = function(block) {
@@ -309,9 +308,7 @@ Blockly.Python['yolobit_blynkv2_connect'] = function(block) {
   Blockly.Python.definitions_['import_blynklib'] = 'import blynklib_v2';
   var value_auth_key = Blockly.Python.valueToCode(block, 'auth_key', Blockly.Python.ORDER_ATOMIC);
   var on_connected_action = Blockly.Python.statementToCode(block, 'on_connected_action');
-  var on_disconnected_action = Blockly.Python.statementToCode(block, 'on_disconnected_action');
   // TODO: Assemble Python into code variable.
-  Blockly.Python.definitions_['import_blynklib_connect'] = 'blynk = blynklib_v2.Blynk(' + value_auth_key + ')\n';
 
   //Global variables except local variable
   var globals = [];
@@ -327,16 +324,15 @@ Blockly.Python['yolobit_blynkv2_connect'] = function(block) {
   }
   globals = globals.length ? Blockly.Python.INDENT + 'global ' + globals.join(', ') : '';
 
-  var onconnected = 
-    ['@blynk.on("connected")',
-    'def blynk_connected(ping):',
-    globals,
-    on_connected_action || Blockly.Python.PASS
+  var code = 
+    ['blynk = blynklib_v2.Blynk(' + value_auth_key + ')',
+      '@blynk.on("connected")',
+      'def blynk_connected(ping):',
+      globals,
+      on_connected_action || Blockly.Python.PASS
     ].join('\n');
 
-  Blockly.Python.definitions_['import_blynklib_onconnected'] = onconnected + '\n';
-
-  return '';
+  return code + '\n';
 };
 
 Blockly.Python['yolobit_blynkv2_update_pin'] = function(block) {
@@ -368,16 +364,15 @@ Blockly.Python['yolobit_blynkv2_app_pin_write'] = function(block) {
   globals = globals.length ? Blockly.Python.INDENT + 'global ' + globals.join(', ') : '';
 
   // TODO: Assemble Python into code variable.
-  var cbFunctionName = Blockly.Python.provideFunction_(
-    'write_pin_handler_' + dropdown_v,
-    ['@blynk.on("V' + dropdown_v + '")\n' +
-      'def ' + 'v' + dropdown_v + '_write_handler' + '(' + variable_value + '):',,
-      globals,
-      Blockly.Python.INDENT + variable_value + ' = '+ variable_value + '[0]\n',
-      statements_action
-    ]);
+  var code = 
+  ['@blynk.on("V' + dropdown_v + '")',
+    'def v' + dropdown_v + '_write_handler(' + variable_value + '):',,
+    globals,
+    Blockly.Python.INDENT + variable_value + ' = '+ variable_value + '[0]\n',
+    statements_action
+  ].join('\n');
 
-  return "";
+  return code + '\n';
 };
 
 Blockly.Python['yolobit_blynkv2_notify'] = function(block) {
